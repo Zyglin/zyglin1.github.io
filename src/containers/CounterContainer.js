@@ -1,5 +1,6 @@
 
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import Counter from '../views/Counter';
 
 export class CounterContainer extends React.Component {
