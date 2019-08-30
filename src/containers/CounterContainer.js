@@ -1,7 +1,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-// eslint-disable-next-line no-unused-vars
 import Counter from '../views/Counter';
 
 export class CounterContainer extends React.Component {

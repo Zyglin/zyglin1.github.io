@@ -18,6 +18,8 @@
   },
   "plugins": ["react"],
   "rules": {
-    "no-unused-vars": ["error", { "vars": "all", "args": "none", "ignoreRestSiblings": false }]
+    "no-unused-vars": ["error", { "vars": "all", "args": "none", "ignoreRestSiblings": false }],
+    "react/jsx-uses-react": "error",   
+    "react/jsx-uses-vars":"error" 
   }
 }
