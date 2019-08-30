@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 // eslint-disable-next-line no-unused-vars
 import Counter from '../views/Counter';
 
@@ -42,5 +43,12 @@ export class CounterContainer extends React.Component {
     return <Counter {...props} />;
   }
 }
+
+CounterContainer.PropTypes = {
+  Decrement: PropTypes.func,
+  Increment: PropTypes.func,
+  Reset: PropTypes.func,
+  Count: PropTypes.number,
+};
 
 export default CounterContainer;
