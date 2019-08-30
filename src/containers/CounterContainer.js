@@ -44,10 +44,10 @@ export class CounterContainer extends React.Component {
 }
 
 CounterContainer.PropTypes = {
-  Decrement: PropTypes.func,
-  Increment: PropTypes.func,
-  Reset: PropTypes.func,
-  Count: PropTypes.number,
+  Decrement: PropTypes.func.isRequired,
+  Increment: PropTypes.func.isRequired,
+  Reset: PropTypes.func.isRequired,
+  Count: PropTypes.number.isRequired,
 };
 
 export default CounterContainer;
