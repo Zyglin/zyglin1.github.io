@@ -1,33 +1,35 @@
-import React from "react";
-import Counter from "../views/Counter/index.js";
+/* eslint-disable no-unused-vars */
+
+import React from 'react'
+import Counter from '../views/Counter'
 
 export class CounterContainer extends React.Component {
   constructor(props) {
-    super(props);
-    this.Increment = this.Increment.bind(this);
-    this.Decrement = this.Decrement.bind(this);
-    this.Reset = this.Reset.bind(this);
+    super(props)
+    this.Increment = this.Increment.bind(this)
+    this.Decrement = this.Decrement.bind(this)
+    this.Reset = this.Reset.bind(this)
     this.state = {
-      count: 0
-    };
+      count: 0,
+    }
   }
 
   Increment() {
     this.setState({
-      count: this.state.count + 1
-    });
+      count: this.state.count + 1,
+    })
   }
 
   Decrement() {
     this.setState({
-      count: this.state.count - 1
-    });
+      count: this.state.count - 1,
+    })
   }
 
   Reset() {
     this.setState({
-      count: 0
-    });
+      count: 0,
+    })
   }
 
   render() {
@@ -35,10 +37,10 @@ export class CounterContainer extends React.Component {
       Decrement: this.Decrement,
       Increment: this.Increment,
       Reset: this.Reset,
-      State: this.state.count
-    };
-    return <Counter {...props} />;
+      Count: this.state.count,
+    }
+    return <Counter {...props} />
   }
 }
 
-export default CounterContainer;
+export default CounterContainer

@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './containers/CounterContainer.js';
+import App from './containers/CounterContainer';
 
 ReactDOM.render(<App />, document.getElementById('root'));

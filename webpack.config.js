@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== "production";
@@ -40,12 +41,20 @@ module.exports = {
               modules: true
             }
           }
+          
         ]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: ["file-loader"]
-      }
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+        },
+      },
     ]
   }
 };
