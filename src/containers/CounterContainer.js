@@ -1,32 +1,31 @@
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import Counter from '../views/Counter';
 
 export class CounterContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.Increment = this.Increment.bind(this);
-    this.Decrement = this.Decrement.bind(this);
-    this.Reset = this.Reset.bind(this);
+    this.handleIncrement = this.handleIncrement.bind(this);
+    this.handleDecrement = this.handleDecrement.bind(this);
+    this.handleReset = this.handleReset.bind(this);
     this.state = {
       count: 0,
     };
   }
 
-  Increment() {
+  handleIncrement() {
     this.setState({
       count: this.state.count + 1,
     });
   }
 
-  Decrement() {
+  handleDecrement() {
     this.setState({
       count: this.state.count - 1,
     });
   }
 
-  Reset() {
+  handleReset() {
     this.setState({
       count: 0,
     });
@@ -34,20 +33,13 @@ export class CounterContainer extends React.Component {
 
   render() {
     const props = {
-      Decrement: this.Decrement,
-      Increment: this.Increment,
-      Reset: this.Reset,
-      Count: this.state.count,
+      handleDecrement: this.handleDecrement,
+      handleIncrement: this.handleIncrement,
+      handleReset: this.handleReset,
+      count: this.state.count,
     };
     return <Counter {...props} />;
   }
 }
-
-CounterContainer.PropTypes = {
-  Decrement: PropTypes.func.isRequired,
-  Increment: PropTypes.func.isRequired,
-  Reset: PropTypes.func.isRequired,
-  Count: PropTypes.number.isRequired,
-};
 
 export default CounterContainer;
