@@ -4,16 +4,15 @@ import Button from '@material-ui/core/Button';
 import styles from './styles';
 
 const counter = (props) => {
-  const classes = styles.useStyles();
+  const classes = styles.useStyles;
   return (
     <div className="counter">
       <h1>{props.count}</h1>
-      <button сlassname={classes.todoComponent} onClick={props.handleIncrement}>
+      <Button сlassName={classes} onClick={props.handleIncrement}>
         Increment
-      </button>
+      </Button>
       <button onClick={props.handleDecrement}>Decrement</button>
       <Button
-        сlassname={classes.button}
         variant="contained"
         color="secondary"
         onClick={props.handleReset}

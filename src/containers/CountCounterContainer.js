@@ -4,20 +4,23 @@ import CountCounter from '../views/Counter/countIndex';
 class CountCounterContainer extends React.Component {
   constructor(props) {
     super(props);
+    this.handleIncrementCounter = this.handleIncrementCounter.bind(this);
+    this.handleDecrementCounter = this.handleDecrementCounter.bind(this);
+    this.handleResetCounter = this.handleResetCounter.bind(this);
     this.state = {
-      countCounter: 0,
+      countCounter: 1,
     };
   }
 
   handleIncrementCounter() {
     this.setState({
-      countCounter: this.state.count + 1,
+      countCounter: this.state.countCounter + 1,
     });
   }
 
   handleDecrementCounter() {
     this.setState({
-      countCounter: this.state.count - 1,
+      countCounter: this.state.countCounter - 1,
     });
   }
 

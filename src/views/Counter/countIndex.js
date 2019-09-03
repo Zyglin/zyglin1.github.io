@@ -2,9 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import styles from './styles';
+import Counter from '../../containers/CounterContainer';
 
 const countCounter = (props) => {
   const classes = styles.useStyles;
+  const rows = [];
+  for (let i = 1; i < props.countCounter; i + 1) {
+    rows.push(<Counter />);
+  }
+
   return (
     <div className="counter">
       <h1>{props.countCounter}</h1>
@@ -18,10 +24,12 @@ const countCounter = (props) => {
         color="secondary"
         onClick={props.handleResetCounter}
       >
-        Reset
+        Reset Counter
       </Button>
+      {
+        rows
+      }
     </div>
-
   );
 };
 
