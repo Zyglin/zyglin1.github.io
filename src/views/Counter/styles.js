@@ -1,23 +1,23 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
+import { makeStyles } from '@material-ui/core/styles';
 
-
-const TodoComponent = {
-  backgroundColor: 'red',
-};
-
-const Header = {
-  color: 'white',
-};
-
-const ErrorMessage = {
-  color: 'green',
-};
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+  errorMessage: {
+    color: 'green',
+  },
+  header: {
+    color: 'white',
+  },
+  todoComponent: {
+    backgroundColor: 'red',
+  },
+}));
 
 const styles = {
-  TodoComponent,
-  Header,
-  ErrorMessage,
+  useStyles,
 };
-
 
 export default styles;

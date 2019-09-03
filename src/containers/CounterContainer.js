@@ -1,8 +1,8 @@
 
 import React from 'react';
-import Counter from '../views/Counter';
+import Counter from '../views/Counter/index';
 
-export class CounterContainer extends React.Component {
+class CounterContainer extends React.Component {
   constructor(props) {
     super(props);
     this.handleIncrement = this.handleIncrement.bind(this);
