@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import styles from './styles';
-import Counter from '../../containers/CounterContainer';
+import CounterContainer from '../../containers/CounterContainer';
 
 const countCounter = (props) => {
   const classes = styles.useStyles;
   const rows = [];
-  for (let i = 1; i < props.countCounter; i + 1) {
-    rows.push(<Counter />);
+  rows.push(<CounterContainer />);
+  for (let i = 1; i < props.countCounter; i += 1) {
+    rows.push(<CounterContainer />);
+    // eslint-disable-next-line no-console
+    console.log(rows);
   }
 
   return (

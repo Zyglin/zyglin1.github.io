@@ -19,9 +19,11 @@ class CountCounterContainer extends React.Component {
   }
 
   handleDecrementCounter() {
-    this.setState({
-      countCounter: this.state.countCounter - 1,
-    });
+    if (this.state.countCounter > 1) {
+      this.setState({
+        countCounter: this.state.countCounter - 1,
+      });
+    }
   }
 
   handleResetCounter() {
