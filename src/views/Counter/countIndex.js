@@ -7,10 +7,11 @@ import CounterContainer from '../../containers/CounterContainer';
 
 
 function PushComponent(rows, props, even, notEven) {
-  rows.push(<CounterContainer index={notEven} key={0} />);
+  rows.push(<CounterContainer index={notEven} countState={props.countCounter} key={0} />);
   for (let i = 1; i < props.countCounter; i += 1) {
-    if (i % 2 === 0) { rows.push(<CounterContainer key={i} index={notEven} />); } else {
-      rows.push(<CounterContainer index={even} key={i} />);
+    // eslint-disable-next-line max-len
+    if (i % 2 === 0) { rows.push(<CounterContainer key={i} index={notEven} countState={props.countCounter} />); } else {
+      rows.push(<CounterContainer index={even} countState={props.countCounter} key={i} />);
     }
   }
 }

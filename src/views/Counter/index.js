@@ -9,7 +9,6 @@ const counter = (props) => {
   return (
     <div className="counter">
       <h1>{props.count}</h1>
-      <h1>{props.index}</h1>
       <Button сlassName={classes} onClick={props.handleIncrement}>
         Increment
       </Button>

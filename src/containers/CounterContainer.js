@@ -1,3 +1,7 @@
+/* eslint-disable class-methods-use-this */
+/* eslint-disable no-console */
+/* eslint-disable react/no-did-update-set-state */
+/* eslint-disable react/prop-types */
 
 import React from 'react';
 import Counter from '../views/Counter/index';
@@ -10,13 +14,38 @@ class CounterContainer extends React.Component {
     this.handleReset = this.handleReset.bind(this);
     this.state = {
       count: 0,
-      // eslint-disable-next-line react/prop-types
       even: this.props.index,
     };
   }
 
+  componentDidUpdate() {
+    console.log('dddddddddd');
+  }
+
+
   componentDidMount() {
-    this.handleUnsafeComponentWillRecieveProps();
+    console.log('ffffffffffffff');
+  }
+
+
+  componentWillUnmount() {
+    console.log('mmmmmmmmmm');
+  }
+
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(nextProps.countState);
+  }
+
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.countState && this.state.even === true) {
+      console.log(this.state.even);
+      this.handleUnsafeComponentWillRecievePropsEven();
+    } else if (this.state.even === false) {
+      console.log(this.state.even);
+      this.handleUnsafeComponentWillRecievePropsNotEven();
+    }
   }
 
   handleIncrement() {
@@ -37,10 +66,12 @@ class CounterContainer extends React.Component {
     });
   }
 
-  handleUnsafeComponentWillRecieveProps() {
-    if (this.state.even === true) {
-      this.handleIncrement();
-    }
+  handleUnsafeComponentWillRecievePropsEven() {
+    this.handleIncrement();
+  }
+
+  handleUnsafeComponentWillRecievePropsNotEven() {
+    this.handleDecrement();
   }
 
   render() {
