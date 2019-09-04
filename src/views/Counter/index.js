@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
@@ -8,6 +9,7 @@ const counter = (props) => {
   return (
     <div className="counter">
       <h1>{props.count}</h1>
+      <h1>{props.index}</h1>
       <Button сlassName={classes} onClick={props.handleIncrement}>
         Increment
       </Button>

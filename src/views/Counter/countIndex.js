@@ -1,19 +1,26 @@
+/* eslint-disable react/jsx-closing-tag-location */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import styles from './styles';
 import CounterContainer from '../../containers/CounterContainer';
 
+
+function PushComponent(rows, props, even, notEven) {
+  rows.push(<CounterContainer index={notEven} key={0} />);
+  for (let i = 1; i < props.countCounter; i += 1) {
+    if (i % 2 === 0) { rows.push(<CounterContainer key={i} index={notEven} />); } else {
+      rows.push(<CounterContainer index={even} key={i} />);
+    }
+  }
+}
+
 const countCounter = (props) => {
   const classes = styles.useStyles;
+  const even = true;
+  const notEven = false;
   const rows = [];
-  rows.push(<CounterContainer />);
-  for (let i = 1; i < props.countCounter; i += 1) {
-    rows.push(<CounterContainer />);
-    // eslint-disable-next-line no-console
-    console.log(rows);
-  }
-
+  PushComponent(rows, props, even, notEven);
   return (
     <div className="counter">
       <h1>{props.countCounter}</h1>
