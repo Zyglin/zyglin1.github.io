@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
-import styles from './css/styles.css';
+import { StyledButton } from './styles';
 import CounterContainer from '../../containers/CounterContainer';
 
 
@@ -12,16 +12,15 @@ function PushComponent(rows, buttonBinding, countCounter) {
 }
 
 const countCounter = (props) => {
-  // const classes = theme.useStyles();
   const rows = [];
   PushComponent(rows, props.buttonBinding, props.countCounter);
   return (
     <div>
       <h1>{props.countCounter}</h1>
-      <Button className={styles.button} onClick={props.handleIncrementCounter}>
+      <StyledButton onClick={props.handleIncrementCounter}>
         Increment Counter
-      </Button>
-      <button onClick={props.handleDecrementCounter}>Decrement Counter</button>
+      </StyledButton>
+      <StyledButton onClick={props.handleDecrementCounter}>Decrement Counter</StyledButton>
       <Button
         variant="contained"
         color="secondary"

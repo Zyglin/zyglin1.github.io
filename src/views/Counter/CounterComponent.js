@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
-import styles from './css/stylesForCount.css';
+import { StyledButtonChild } from './styles';
 
 const counter = (props) => (
   <div>
     <h1>{props.count}</h1>
-    <Button className={styles.button} onClick={props.handleIncrement}>
+    <StyledButtonChild onClick={props.handleIncrement}>
         Increment
-    </Button>
-    <button onClick={props.handleDecrement}>Decrement</button>
+    </StyledButtonChild>
+    <StyledButtonChild onClick={props.handleDecrement}>Decrement</StyledButtonChild>
     <Button
       variant="contained"
       color="secondary"
