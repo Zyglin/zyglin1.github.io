@@ -1,8 +1,6 @@
-/* eslint-disable class-methods-use-this */
-/* eslint-disable react/prop-types */
-
 import React from 'react';
-import Counter from '../views/Counter/index';
+import PropTypes from 'prop-types';
+import Counter from '../views/Counter/CounterComponent';
 
 class CounterContainer extends React.Component {
   constructor(props) {
@@ -10,6 +8,12 @@ class CounterContainer extends React.Component {
     this.handleIncrement = this.handleIncrement.bind(this);
     this.handleDecrement = this.handleDecrement.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    this.textCompDidUpdate = 'componentDidUpdateChild';
+    this.textCompDidMount = 'componentDidMountChild';
+    this.textCompWillUnMount = 'componentWillUnmountChild';
+    this.textShouldCompDidUpdate = 'shouldComponentUpdateChild';
+    this.getDerivedStateFromProps = 'getDerivedStateFromPropsChild';
+    this.getSnapshotBeforeUpdate = 'getSnapshotBeforeUpdateChild';
     this.state = {
       count: 0,
       countState: props.countState,
@@ -17,28 +21,37 @@ class CounterContainer extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log('componentDidUpdate');
+    console.log(this.shouldComponentUpdate);
   }
 
+  shouldComponentUpdate() {
+    return this.textShouldCompDidUpdate;
+  }
 
   componentDidMount() {
-    console.log('componentDidMount');
+    console.log(this.textCompDidMount);
   }
 
+  getDerivedStateFromProps() {
+    console.log(this.getDerivedStateFromProps);
+  }
+
+  getSnapshotBeforeUpdate() {
+    console.log(this.getSnapshotBeforeUpdate);
+  }
 
   componentWillUnmount() {
-    console.log('componentWillUnmount');
+    console.log(this.textCompWillUnMount);
   }
 
-
   componentWillReceiveProps(nextProps) {
-    if (nextProps.isEven === 2 && this.state.count % 2 === 0) {
+    if (nextProps.buttonBinding === 2 && this.state.count % 2 === 0) {
       console.log(' %c componentWillReceiveProps RRR', 'color: red');
       this.handleIncrement();
-    } else if (nextProps.isEven === 1 && this.state.count % 2 !== 0) {
+    } else if (nextProps.buttonBinding === 1 && this.state.count % 2 !== 0) {
       console.log(' %c componentWillReceiveProps blue', 'color: blue');
       this.handleDecrement();
-    } else if (nextProps.isEven === 3) {
+    } else if (nextProps.buttonBinding === 3) {
       this.setState({
         count: 0,
       });
@@ -64,6 +77,7 @@ class CounterContainer extends React.Component {
   }
 
   render() {
+    console.log('render');
     const props = {
       handleDecrement: this.handleDecrement,
       handleIncrement: this.handleIncrement,
@@ -73,5 +87,9 @@ class CounterContainer extends React.Component {
     return <Counter {...props} />;
   }
 }
+CounterContainer.propTypes = {
+  countState: PropTypes.number.isRequired,
+  buttonBinding: PropTypes.number.isRequired,
+};
 
 export default CounterContainer;
