@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-closing-tag-location */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
@@ -6,26 +5,20 @@ import styles from './styles';
 import CounterContainer from '../../containers/CounterContainer';
 
 
-function PushComponent(rows, props, even, notEven) {
-  rows.push(<CounterContainer index={notEven} countState={props.countCounter} key={0} />);
-  for (let i = 1; i < props.countCounter; i += 1) {
-    // eslint-disable-next-line max-len
-    if (i % 2 === 0) { rows.push(<CounterContainer key={i} index={notEven} countState={props.countCounter} />); } else {
-      rows.push(<CounterContainer index={even} countState={props.countCounter} key={i} />);
-    }
+function PushComponent(rows, props) {
+  for (let i = 0; i < props.countCounter; i += 1) {
+    rows.push(<CounterContainer isEven={props.isEven} countState={props.countCounter} key={i} />);
   }
 }
 
 const countCounter = (props) => {
-  const classes = styles.useStyles;
-  const even = true;
-  const notEven = false;
+  const classes = styles.useStyles();
   const rows = [];
-  PushComponent(rows, props, even, notEven);
+  PushComponent(rows, props);
   return (
     <div className="counter">
       <h1>{props.countCounter}</h1>
-      <button style={styles.TodoComponent} onClick={props.handleIncrementCounter}>
+      <button className={styles.TodoComponent} onClick={props.handleIncrementCounter}>
         Increment Counter
       </button>
       <button onClick={props.handleDecrementCounter}>Decrement Counter</button>

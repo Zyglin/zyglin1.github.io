@@ -4,31 +4,32 @@ import CountCounter from '../views/Counter/countIndex';
 class CountCounterContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.handleIncrementCounter = this.handleIncrementCounter.bind(this);
-    this.handleDecrementCounter = this.handleDecrementCounter.bind(this);
-    this.handleResetCounter = this.handleResetCounter.bind(this);
     this.state = {
       countCounter: 1,
+      isEven: 1,
     };
   }
 
-  handleIncrementCounter() {
+  handleIncrementCounter = () => {
     this.setState({
       countCounter: this.state.countCounter + 1,
+      isEven: 2,
     });
   }
 
-  handleDecrementCounter() {
+  handleDecrementCounter = () => {
     if (this.state.countCounter > 1) {
       this.setState({
         countCounter: this.state.countCounter - 1,
+        isEven: 1,
       });
     }
   }
 
-  handleResetCounter() {
+  handleResetCounter = () => {
     this.setState({
       countCounter: 1,
+      isEven: 3,
     });
   }
 
@@ -38,6 +39,7 @@ class CountCounterContainer extends React.Component {
       handleDecrementCounter: this.handleDecrementCounter,
       handleResetCounter: this.handleResetCounter,
       countCounter: this.state.countCounter,
+      isEven: this.state.isEven,
     };
     return <CountCounter {...props} />;
   }

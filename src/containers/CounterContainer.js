@@ -1,6 +1,4 @@
 /* eslint-disable class-methods-use-this */
-/* eslint-disable no-console */
-/* eslint-disable react/no-did-update-set-state */
 /* eslint-disable react/prop-types */
 
 import React from 'react';
@@ -14,37 +12,36 @@ class CounterContainer extends React.Component {
     this.handleReset = this.handleReset.bind(this);
     this.state = {
       count: 0,
-      even: this.props.index,
+      countState: props.countState,
     };
   }
 
   componentDidUpdate() {
-    console.log('dddddddddd');
+    console.log('componentDidUpdate');
   }
 
 
   componentDidMount() {
-    console.log('ffffffffffffff');
+    console.log('componentDidMount');
   }
 
 
   componentWillUnmount() {
-    console.log('mmmmmmmmmm');
-  }
-
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log(nextProps.countState);
+    console.log('componentWillUnmount');
   }
 
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.countState && this.state.even === true) {
-      console.log(this.state.even);
-      this.handleUnsafeComponentWillRecievePropsEven();
-    } else if (this.state.even === false) {
-      console.log(this.state.even);
-      this.handleUnsafeComponentWillRecievePropsNotEven();
+    if (nextProps.isEven === 2 && this.state.count % 2 === 0) {
+      console.log(' %c componentWillReceiveProps RRR', 'color: red');
+      this.handleIncrement();
+    } else if (nextProps.isEven === 1 && this.state.count % 2 !== 0) {
+      console.log(' %c componentWillReceiveProps blue', 'color: blue');
+      this.handleDecrement();
+    } else if (nextProps.isEven === 3) {
+      this.setState({
+        count: 0,
+      });
     }
   }
 
@@ -66,22 +63,12 @@ class CounterContainer extends React.Component {
     });
   }
 
-  handleUnsafeComponentWillRecievePropsEven() {
-    this.handleIncrement();
-  }
-
-  handleUnsafeComponentWillRecievePropsNotEven() {
-    this.handleDecrement();
-  }
-
   render() {
     const props = {
       handleDecrement: this.handleDecrement,
       handleIncrement: this.handleIncrement,
       handleReset: this.handleReset,
       count: this.state.count,
-      // eslint-disable-next-line react/prop-types
-      index: this.state.even,
     };
     return <Counter {...props} />;
   }

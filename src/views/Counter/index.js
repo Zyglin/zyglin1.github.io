@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import styles from './styles';
 
 const counter = (props) => {
-  const classes = styles.useStyles;
+  const classes = styles.useStyles();
   return (
     <div className="counter">
       <h1>{props.count}</h1>
