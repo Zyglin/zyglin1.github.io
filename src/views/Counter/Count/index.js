@@ -1,6 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledButtonChild, StyledButtonChildForReset } from './styles';
+import { styled } from '@material-ui/styles';
+import Button from '@material-ui/core/Button';
+import styles from './styles';
+
+
+const StyledButtonChild = styled(Button)(
+  styles.buttonChild,
+);
+
+const StyledButtonChildForReset = styled(Button)(styles.buttonResetChild);
+
 
 const counter = (props) => (
   <div>

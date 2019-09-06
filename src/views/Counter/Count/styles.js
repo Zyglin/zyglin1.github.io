@@ -1,7 +1,5 @@
-import { styled } from '@material-ui/styles';
-import Button from '@material-ui/core/Button';
-
-const StyledButtonChild = styled(Button)({
+const styles = {
+  buttonChild: {
   background: 'linear-gradient(15deg, blue 20%, red 80%)',
   border: 1,
   borderRadius: 2,
@@ -10,9 +8,8 @@ const StyledButtonChild = styled(Button)({
   marginLeft: '10px',
   height: 48,
   padding: '0 30px',
-});
-
-const StyledButtonChildForReset = styled(Button)({
+},
+buttonResetChild: {
   background: 'linear-gradient(45deg, red 10%, orange 90%)',
   border: 3,
   borderRadius: 8,
@@ -21,7 +18,8 @@ const StyledButtonChildForReset = styled(Button)({
   height: 48,
   marginLeft: '10px',
   padding: '0 30px',
-});
+},
+};
 
 
-export { StyledButtonChild, StyledButtonChildForReset };
+export default styles;

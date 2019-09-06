@@ -6,19 +6,26 @@ import Tab from '@material-ui/core/Tab';
 import {
   Switch, Route, Link, BrowserRouter,
 } from 'react-router-dom';
-import { StyledButton, StyledButtonForReset } from './styles';
+import { styled } from '@material-ui/styles';
+import Button from '@material-ui/core/Button';
+import styles from './styles';
 import CounterContainer from '../../../containers/CounterContainer';
 
+const StyledButton = styled(Button)(styles.button);
 
-function PushComponent(rows, buttonBinding, countCounter) {
+const StyledButtonForReset = styled(Button)(styles.buttonReset);
+
+
+function PushComponent(buttonBinding, countCounter) {
+  const rows = [];
   for (let i = 0; i < countCounter; i += 1) {
     rows.push(<CounterContainer buttonBinding={buttonBinding} countState={countCounter} key={i} />);
   }
+  return rows;
 }
 
 const countCounter = (props) => {
-  const rows = [];
-  PushComponent(rows, props.buttonBinding, props.countCounter);
+  const rows = PushComponent(props.buttonBinding, props.countCounter);
   return (
     <div>
       <BrowserRouter>
