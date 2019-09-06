@@ -9,6 +9,7 @@ module.exports = {
   output: {
     filename: './main.js',
     chunkFilename: '[name].bundle.js',
+    publicPath: '/',
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
@@ -16,6 +17,7 @@ module.exports = {
     port: 9000,
     watchContentBase: true,
     progress: true,
+    historyApiFallback: true,
   },
   plugins: [
     new MiniCssExtractPlugin({
