@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
-import { StyledButtonChild } from './styles';
+import { StyledButtonChild, StyledButtonChildForReset } from './styles';
 
 const counter = (props) => (
   <div>
@@ -10,13 +9,13 @@ const counter = (props) => (
         Increment
     </StyledButtonChild>
     <StyledButtonChild onClick={props.handleDecrement}>Decrement</StyledButtonChild>
-    <Button
+    <StyledButtonChildForReset
       variant="contained"
       color="secondary"
       onClick={props.handleReset}
     >
         Reset
-    </Button>
+    </StyledButtonChildForReset>
   </div>
 );
 

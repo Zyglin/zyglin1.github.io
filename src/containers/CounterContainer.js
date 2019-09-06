@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Counter from '../views/Counter/CounterComponent';
+import Counter from '../views/Counter/Count/CounterComponent';
 
 class CounterContainer extends React.Component {
   constructor(props) {
