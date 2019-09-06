@@ -19,6 +19,7 @@ class TabPanelContainer extends React.Component {
         return <TabPanel value={false} />;
       case '/about':
       case '/counters':
+      case '/login':
         return <TabPanel value={this.state.pathname} />;
       default:
         return null;

@@ -17,6 +17,7 @@ const TabPanel = props => {
         <Tabs value={value} onChange={handleChange} centered>
           <Tab label="About" component={Link} value="/about" to="/about" />
           <Tab label="Counters" component={Link} value="/counters" to="/counters" />
+          <Tab label="Login" component={Link} value="/login" to="/login" />
         </Tabs>
       </AppBar>
     </div>

@@ -4,6 +4,7 @@ import TabPanel from './containers/TabPanelContainer';
 import NotFound from './containers/NotFoundContaner';
 import About from './containers/AboutContainer';
 import Counters from './containers/CountCounterContainer';
+import Login from './containers/LoginContainer';
 
 const AppRouter = () => (
   <Router>
@@ -12,6 +13,7 @@ const AppRouter = () => (
       <Route exact path="/" />
       <Route path="/about" component={About} />
       <Route path="/counters" component={Counters} />
+      <Route path="/login" component={Login} />
       <Route component={NotFound} />
     </Switch>
   </Router>
