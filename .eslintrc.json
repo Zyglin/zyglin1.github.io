@@ -18,7 +18,6 @@
   },
   "plugins": ["react"],
   "rules": {
-    "no-unused-vars": ["error", { "vars": "all", "args": "none", "ignoreRestSiblings": false }],
-    "indent": "off"
+    "no-unused-vars": ["error", { "vars": "all", "args": "none", "ignoreRestSiblings": false }]
   }
 }
