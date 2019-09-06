@@ -1,18 +1,29 @@
+/* eslint-disable react/jsx-handler-names */
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const TabPanel = () => (
-  <div className="root">
-    <AppBar position="fixed">
-      <Tabs centered>
-        <Tab label="About" component={Link} to="/about" />
-        <Tab label="Counters" component={Link} to="/counters" />
-      </Tabs>
-    </AppBar>
-  </div>
-);
+const TabPanel = props => {
+  const [value, setValue] = React.useState(props.value);
+  function handleChange(event, newValue) {
+    setValue(newValue);
+  }
+  return (
+    <div className="root">
+      <AppBar position="fixed">
+        <Tabs value={value} onChange={handleChange} centered>
+          <Tab label="About" component={Link} value="/about" to="/about" />
+          <Tab label="Counters" component={Link} value="/counters" to="/counters" />
+        </Tabs>
+      </AppBar>
+    </div>
+  );
+};
 
+TabPanel.propTypes = {
+  value: PropTypes.any.isRequired,
+};
 export default TabPanel;

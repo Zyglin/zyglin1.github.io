@@ -19,6 +19,9 @@ const styles = {
     marginLeft: '10px',
     padding: '0 30px',
   },
+  counterMargin: {
+    marginTop: '1000px',
+  },
 };
 
 export default styles;

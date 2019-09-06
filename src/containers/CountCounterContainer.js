@@ -45,7 +45,7 @@ class CountCounterContainer extends React.Component {
       countCounter: this.state.countCounter + 1,
       buttonBinding: 2,
     });
-  }
+  };
 
   handleDecrementCounter = () => {
     if (this.state.countCounter > 1) {
@@ -54,14 +54,14 @@ class CountCounterContainer extends React.Component {
         buttonBinding: 1,
       });
     }
-  }
+  };
 
   handleResetCounter = () => {
     this.setState({
       countCounter: 1,
       buttonBinding: 3,
     });
-  }
+  };
 
   render() {
     console.log('renderParent');
