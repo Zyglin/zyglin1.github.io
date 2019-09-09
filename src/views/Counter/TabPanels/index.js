@@ -18,6 +18,7 @@ const TabPanel = props => {
           <Tab label="Counters" component={Link} value="/counters" to="/counters" />
           <Tab label="Login" component={Link} value="/login" to="/login" />
           <Tab label="LoginRedux" component={Link} value="/login-redux" to="/login-redux" />
+          <Tab label="LoginReduxForm" component={Link} value="/login-redux-form" to="/login-redux-form" />
         </Tabs>
       </AppBar>
     </div>
