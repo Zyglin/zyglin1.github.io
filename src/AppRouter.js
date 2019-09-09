@@ -7,7 +7,8 @@ import Counters from './containers/CountCounterContainer';
 import Login from './containers/LoginContainer';
 import LoginRedux from './containers/LoginReduxContainer';
 import LoginReduxForm from './containers/LoginReduxFormContainer';
-import LoginSucess from './containers/LoginSucessContainer';
+import LoginSuccess from './containers/LoginSucessContainer';
+import LoginReduxFormSuccess from './containers/LoginReduxFormSuccessContainer';
 
 const AppRouter = () => (
   <Router>
@@ -18,8 +19,9 @@ const AppRouter = () => (
       <Route path="/counters" component={Counters} />
       <Route path="/login" component={Login} />
       <Route exact path="/login-redux" component={LoginRedux} />
+      <Route path="/login-redux/success" component={LoginSuccess} />
       <Route exact path="/login-redux-form" component={LoginReduxForm} />
-      <Route path="/login-redux/success" component={LoginSucess} />
+      <Route path="/login-redux-form/success" component={LoginReduxFormSuccess} />
       <Route component={NotFound} />
     </Switch>
   </Router>

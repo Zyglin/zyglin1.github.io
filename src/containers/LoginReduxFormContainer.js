@@ -5,7 +5,7 @@ import LoginReduxFormView from '../views/LoginReduxForm';
 
 class LoginReduxFormContainer extends React.Component {
   handleSubmit = values => {
-    this.props.history.push('login-redux/success');
+    this.props.history.push('login-redux-form/success');
     console.log(values);
   };
 
