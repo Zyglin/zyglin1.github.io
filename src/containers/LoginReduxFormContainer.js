@@ -1,10 +1,11 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
+import PropTypes from 'prop-types';
 import LoginReduxFormView from '../views/LoginReduxForm';
 
 class LoginReduxFormContainer extends React.Component {
   handleSubmit = values => {
-    // print the form values to the console
+    this.props.history.push('login-redux/success');
     console.log(values);
   };
 
@@ -17,4 +18,14 @@ class LoginReduxFormContainer extends React.Component {
   }
 }
 
+LoginReduxFormContainer.propTypes = {
+  history: PropTypes.any,
+};
+
+// function mapStateToProps(state) {
+//   return {
+//     mail: state.form.mail,
+//     password: state.form.password,
+//   };
+// }
 export default LoginReduxFormContainer;

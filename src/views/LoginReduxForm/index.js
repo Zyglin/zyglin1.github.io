@@ -1,6 +1,8 @@
+/* eslint-disable import/no-mutable-exports */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
 
 const required = value => (value || typeof value === 'number' ? undefined : 'Required');
 const email = value => (value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Invalid email address' : undefined);
@@ -18,7 +20,7 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
 );
 
 const LoginReduxFormView = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, hasEmailValue, hasPasswordValue } = props;
   return (
     <div>
       <p>ff</p>
@@ -33,12 +35,16 @@ const LoginReduxFormView = props => {
         </div>
         <button type="submit">Submit</button>
       </form>
+      <div>Mail CurrentValue: {hasEmailValue}</div>
+      <div>Password CurrentValue: {hasPasswordValue}</div>
     </div>
   );
 };
 
 LoginReduxFormView.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  hasEmailValue: PropTypes.any,
+  hasPasswordValue: PropTypes.any,
 };
 
 renderField.propTypes = {
@@ -48,6 +54,20 @@ renderField.propTypes = {
   meta: PropTypes.any,
 };
 
-export default reduxForm({
+let LoginRedForm = LoginReduxFormView;
+
+LoginRedForm = reduxForm({
   form: 'login',
-})(LoginReduxFormView);
+})(LoginRedForm);
+
+const selector = formValueSelector('login');
+LoginRedForm = connect(state => {
+  const hasEmailValue = selector(state, 'email');
+  const hasPasswordValue = selector(state, 'password');
+  return {
+    hasEmailValue,
+    hasPasswordValue,
+  };
+})(LoginRedForm);
+
+export default LoginRedForm;

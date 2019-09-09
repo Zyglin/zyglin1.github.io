@@ -21,8 +21,8 @@ LoginSucessContainer.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    mail: state.mail,
-    password: state.password,
+    mail: state.loginredux.mail,
+    password: state.loginredux.password,
   };
 }
 

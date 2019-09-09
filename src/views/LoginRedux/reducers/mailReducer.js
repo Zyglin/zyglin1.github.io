@@ -4,7 +4,7 @@ const initialState = '';
 function mailReducer(state = initialState, action) {
   switch (action.type) {
     case MAIL_INPUT:
-      return action.text;
+      return action.payload;
     default:
       return state;
   }

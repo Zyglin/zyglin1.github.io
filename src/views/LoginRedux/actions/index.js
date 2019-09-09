@@ -4,12 +4,12 @@ export const PASSWORD_INPUT = 'PASSWORD_INPUT';
 export function mailEnter(mail) {
   return {
     type: MAIL_INPUT,
-    text: mail,
+    payload: mail,
   };
 }
 export function passwordEnter(password) {
   return {
     type: PASSWORD_INPUT,
-    text: password,
+    payload: password,
   };
 }

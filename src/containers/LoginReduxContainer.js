@@ -15,7 +15,7 @@ class LoginReduxContainer extends React.Component {
   };
 
   pressLogin = () => {
-    console.log(this.props.mail.length);
+    console.log(this.props.mail);
     if (this.props.mail.length >= 6 && this.props.password.length >= 6) {
       this.props.history.push('login-redux/success');
     } else {
