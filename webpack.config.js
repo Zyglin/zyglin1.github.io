@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -44,7 +43,6 @@ module.exports = {
               modules: true,
             },
           },
-
         ],
       },
       {
@@ -55,8 +53,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
-        options: {
-        },
+        options: {},
       },
     ],
   },

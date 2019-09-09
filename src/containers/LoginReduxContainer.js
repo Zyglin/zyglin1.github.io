@@ -15,7 +15,7 @@ class LoginReduxContainer extends React.Component {
   };
 
   pressLogin = () => {
-    console.log(this.props.mail.length); // не работают без mapStateToProps(создаём пропсы)
+    console.log(this.props.mail.length);
     if (this.props.mail.length >= 6 && this.props.password.length >= 6) {
       this.props.history.push('login-redux/success');
     } else {
@@ -35,7 +35,6 @@ class LoginReduxContainer extends React.Component {
       mail: this.props.mail,
       password: this.props.password,
       handleValidateForm: this.validateForm,
-      validationText: this.props.validationText,
     };
     return <LoginRedux {...props} />;
   }
@@ -46,7 +45,6 @@ LoginReduxContainer.propTypes = {
   passwordEnter: PropTypes.func.isRequired,
   mail: PropTypes.any,
   password: PropTypes.string,
-  validationText: PropTypes.string,
   history: PropTypes.any,
 };
 
@@ -57,7 +55,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-// Задать Ване вопрос
 function mapStateToProps(state) {
   return {
     mail: state.mail,

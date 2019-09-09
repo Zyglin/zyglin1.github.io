@@ -10,21 +10,21 @@ const LoginView = props => (
       <p>
         <label>
           {' '}
-          Логин: <input type="text" name="mail" value={props.mail} onChange={props.handleChangeMail} />
+          Mail: <input type="text" name="mail" value={props.mail} onChange={props.handleChangeMail} />
         </label>
       </p>
       <p>
         <label>
           {' '}
-          Пароль: <input type="password" name="password" value={props.password} onChange={props.handleChangePassword} />
+          Password: <input type="password" name="password" value={props.password} onChange={props.handleChangePassword} />
         </label>
       </p>
       <p>
         <input type="submit" value="Submit" />
       </p>
     </form>
-    <div>Текущее значение логина: {props.mail}</div>
-    <div>Текущее значение пароля: {props.password}</div>
+    <div>Mail value: {props.mail}</div>
+    <div>Password value: {props.password}</div>
   </div>
 );
 
