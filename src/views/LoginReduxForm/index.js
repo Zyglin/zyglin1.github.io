@@ -59,14 +59,4 @@ LoginRedForm = reduxForm({
   form: 'login',
 })(LoginRedForm);
 
-// const selector = formValueSelector('login');
-// LoginRedForm = connect(state => {
-//   const hasEmailValue = selector(state, 'email');
-//   const hasPasswordValue = selector(state, 'password');
-//   return {
-//     hasEmailValue,
-//     hasPasswordValue,
-//   };
-// })(LoginRedForm);
-
 export default LoginRedForm;

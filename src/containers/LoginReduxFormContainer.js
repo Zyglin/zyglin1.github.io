@@ -7,6 +7,8 @@ import LoginReduxFormView from '../views/LoginReduxForm';
 
 class LoginReduxFormContainer extends React.Component {
   handleSubmit = values => {
+    console.log(this.props.hasEmailValue);
+    console.log(this.props.hasPasswordValue);
     this.props.history.push('login-redux-form/success');
     console.log(values);
   };
@@ -26,16 +28,14 @@ LoginReduxFormContainer.propTypes = {
   hasPasswordValue: PropTypes.any,
 };
 
-let LoginReduxForm = LoginReduxFormContainer;
-
-const selector = formValueSelector('login');
-LoginReduxForm = connect(state => {
+function mapStateToProps(state) {
+  const selector = formValueSelector('login');
   const hasEmailValue = selector(state, 'email');
   const hasPasswordValue = selector(state, 'password');
   return {
     hasEmailValue,
     hasPasswordValue,
   };
-})(LoginReduxForm);
+}
 
-export default LoginReduxForm;
+export default connect(mapStateToProps)(LoginReduxFormContainer);
