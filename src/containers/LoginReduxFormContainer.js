@@ -1,6 +1,8 @@
-/* eslint-disable class-methods-use-this */
+/* eslint-disable import/no-mutable-exports */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { formValueSelector } from 'redux-form';
 import LoginReduxFormView from '../views/LoginReduxForm';
 
 class LoginReduxFormContainer extends React.Component {
@@ -12,7 +14,7 @@ class LoginReduxFormContainer extends React.Component {
   render() {
     return (
       <div>
-        <LoginReduxFormView onSubmit={this.handleSubmit} />
+        <LoginReduxFormView onSubmit={this.handleSubmit} mail={this.props.hasEmailValue} password={this.props.hasPasswordValue} />
       </div>
     );
   }
@@ -20,12 +22,20 @@ class LoginReduxFormContainer extends React.Component {
 
 LoginReduxFormContainer.propTypes = {
   history: PropTypes.any,
+  hasEmailValue: PropTypes.any,
+  hasPasswordValue: PropTypes.any,
 };
 
-// function mapStateToProps(state) {
-//   return {
-//     mail: state.form.mail,
-//     password: state.form.password,
-//   };
-// }
-export default LoginReduxFormContainer;
+let LoginReduxForm = LoginReduxFormContainer;
+
+const selector = formValueSelector('login');
+LoginReduxForm = connect(state => {
+  const hasEmailValue = selector(state, 'email');
+  const hasPasswordValue = selector(state, 'password');
+  return {
+    hasEmailValue,
+    hasPasswordValue,
+  };
+})(LoginReduxForm);
+
+export default LoginReduxForm;

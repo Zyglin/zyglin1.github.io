@@ -3,7 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import reducer from './views/LoginRedux/reducers';
+import reducer from './reducers';
 import AppRouter from './AppRouter';
 
 const rootReducer = combineReducers({

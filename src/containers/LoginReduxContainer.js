@@ -1,9 +1,8 @@
-/* eslint-disable class-methods-use-this */
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import LoginRedux from '../views/LoginRedux';
-import { mailEnter, passwordEnter } from '../views/LoginRedux/actions';
+import { mailEnter, passwordEnter } from '../actions';
 
 class LoginReduxContainer extends React.Component {
   handleChangeLogin = event => {
@@ -15,7 +14,6 @@ class LoginReduxContainer extends React.Component {
   };
 
   pressLogin = () => {
-    console.log(this.props.mail);
     if (this.props.mail.length >= 6 && this.props.password.length >= 6) {
       this.props.history.push('login-redux/success');
     } else {

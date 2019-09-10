@@ -1,25 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const LoginSuccesView = props => {
   return (
     <form>
-      <p>
+      <p>d</p>
+      <div>
         <label>
-          <p>d</p>
-          Mail: <input type="text" name="mail" />
+          Mail: <input type="text" name="mail" value={props.mail} />
         </label>
-      </p>
-      <p>
+      </div>
+      <div>
         <label>
           {' '}
-          Password: <input type="password" name="password" />
+          Password: <input type="password" name="password" value={props.password} />
         </label>
-      </p>
-      <p>
+      </div>
+      <div>
         <input type="submit" value="Submit" />
-      </p>
+      </div>
     </form>
   );
+};
+
+LoginSuccesView.propTypes = {
+  mail: PropTypes.any,
+  password: PropTypes.any,
 };
 
 export default LoginSuccesView;
