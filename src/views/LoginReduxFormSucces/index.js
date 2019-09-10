@@ -24,8 +24,8 @@ const LoginSuccesView = props => {
 };
 
 LoginSuccesView.propTypes = {
-  mail: PropTypes.any,
-  password: PropTypes.any,
+  mail: PropTypes.string,
+  password: PropTypes.string,
 };
 
 export default LoginSuccesView;

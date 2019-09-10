@@ -41,7 +41,7 @@ class LoginReduxContainer extends React.Component {
 LoginReduxContainer.propTypes = {
   mailEnter: PropTypes.func.isRequired,
   passwordEnter: PropTypes.func.isRequired,
-  mail: PropTypes.any,
+  mail: PropTypes.string,
   password: PropTypes.string,
   history: PropTypes.any,
 };

@@ -12,8 +12,8 @@ class LoginReduxFormSuccessContainer extends React.Component {
 }
 
 LoginReduxFormSuccessContainer.propTypes = {
-  hasEmailValue: PropTypes.any,
-  hasPasswordValue: PropTypes.any,
+  hasEmailValue: PropTypes.string,
+  hasPasswordValue: PropTypes.string,
 };
 
 function mapStateToProps(state) {

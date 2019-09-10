@@ -42,8 +42,8 @@ const LoginReduxFormView = props => {
 
 LoginReduxFormView.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  mail: PropTypes.any,
-  password: PropTypes.any,
+  mail: PropTypes.string,
+  password: PropTypes.string,
 };
 
 renderField.propTypes = {

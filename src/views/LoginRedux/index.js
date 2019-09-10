@@ -29,7 +29,7 @@ const LoginView = props => (
 );
 
 LoginView.propTypes = {
-  mail: PropTypes.any,
+  mail: PropTypes.string,
   password: PropTypes.string,
   handleChangePassword: PropTypes.func.isRequired,
   handleChangeMail: PropTypes.func.isRequired,

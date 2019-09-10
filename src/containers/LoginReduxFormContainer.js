@@ -1,4 +1,3 @@
-/* eslint-disable import/no-mutable-exports */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -24,8 +23,8 @@ class LoginReduxFormContainer extends React.Component {
 
 LoginReduxFormContainer.propTypes = {
   history: PropTypes.any,
-  hasEmailValue: PropTypes.any,
-  hasPasswordValue: PropTypes.any,
+  hasEmailValue: PropTypes.string,
+  hasPasswordValue: PropTypes.string,
 };
 
 function mapStateToProps(state) {
